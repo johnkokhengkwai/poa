@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Principles of Accounts: Trade vs Cash Discounts</title>
+  <style>
+    :root {
+      --primary: #2563eb;
+      --secondary: #059669;
+      --accent: #d97706;
+      --bg: #f8fafc;
+      --card: #ffffff;
+      --text: #1e293b;
+      --border: #e2e8f0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      color: var(--primary);
+      margin-bottom: 5px;
+    }
+
+    .nav-tabs {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px;
+      border: 1px solid var(--border);
+      background: #e2e8f0;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      border-color: var(--primary);
+    }
+
+    .tab-content {
+      display: none;
+      background: var(--card);
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      border: 1px solid var(--border);
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .box {
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .box-info { background: #eff6ff; border-left: 4px solid var(--primary); }
+    .box-success { background: #ecfdf5; border-left: 4px solid var(--secondary); }
+    .box-warning { background: #fffbeb; border-left: 4px solid var(--accent); }
+
+    .interactive-calc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    @media (max-width: 600px) {
+      .interactive-calc { grid-template-columns: 1fr; }
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      box-sizing: border-box;
+    }
+
+    .btn {
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: bold;
+      margin-top: 15px;
+    }
+
+    .btn:hover { opacity: 0.9; }
+
+    .quiz-option {
+      display: block;
+      padding: 10px 15px;
+      margin: 8px 0;
+      background: #f1f5f9;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    .quiz-option:hover {
+      background: #e2e8f0;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: white;
+    }
+
+    .badge-blue { background: var(--primary); }
+    .badge-green { background: var(--secondary); }
+    .badge-orange { background: var(--accent); }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <header>
+    <h1>Principles of Accounts Navigator</h1>
+    <p>Interactive Self-Directed Learning Module: Trade vs. Cash Discounts</p>
+  </header>
+
+  <div class="nav-tabs">
+    <button class="tab-btn active" onclick="switchTab('concept')">1. Core Concepts</button>
+    <button class="tab-btn" onclick="switchTab('simulator')">2. Live Calculation Simulator</button>
+    <button class="tab-btn" onclick="switchTab('diagnostic')">3. Diagnostic & Path Check</button>
+  </div>
+
+  <!-- TAB 1: CORE CONCEPTS -->
+  <div id="concept" class="tab-content active">
+    <h2>Understanding the Two Discounts</h2>
+    
+    <div class="box box-info">
+      <h3>🛒 Trade Discount</h3>
+      <p><strong>What is it?</strong> A price reduction given at the time of purchase (e.g., bulk buying or trade discount).</p>
+      <p><strong>Accounting Rule:</strong> Deducted directly from the List Price on the invoice. <span style="color: red; font-weight: bold;">NEVER recorded in account books!</span></p>
+    </div>
+
+    <div class="box box-success">
+      <h3>⏱️ Cash Discount</h3>
+      <p><strong>What is it?</strong> A discount offered to encourage prompt payment within a credit period (e.g., 5% off if paid in 7 days).</p>
+      <p><strong>Accounting Rule:</strong> Calculated on the Net Invoice Price. <span style="color: green; font-weight: bold;">ALWAYS recorded in account books</span> as <em>Discount Allowed</em> (Expense for Seller) or <em>Discount Received</em> (Income for Buyer).</p>
+    </div>
+
+    <h3>Golden Calculation Formula</h3>
+    <div class="box box-warning">
+      <ol>
+        <li><strong>List Price</strong> $-$ <strong>Trade Discount</strong> = <strong>Net Invoice Price</strong> <em>(Recorded in Sales/Purchases)</em></li>
+        <li><strong>Net Invoice Price</strong> $-$ <strong>Cash Discount</strong> = <strong>Final Cash Amount Paid/Received</strong></li>
+      </ol>
+    </div>
+  </div>
+
+  <!-- TAB 2: LIVE SIMULATOR -->
+  <div id="simulator" class="tab-content">
+    <h2>Interactive Scenario Simulator</h2>
+    <p>Adjust the invoice details below to visualize how values flow into the accounting books.</p>
+    
+    <div class="interactive-calc">
+      <div>
+        <label>List Price ($):</label>
+        <input type="number" id="simListPrice" value="1000" oninput="calculateSim()">
+
+        <label>Trade Discount (%):</label>
+        <input type="number" id="simTradePct" value="10" oninput="calculateSim()">
+
+        <label>Cash Discount Terms:</label>
+        <select id="simPaidEarly" onchange="calculateSim()">
+          <option value="yes">Paid within credit period (Qualifies for 5% Cash Discount)</option>
+          <option value="no">Paid after credit period (No Cash Discount)</option>
+        </select>
+      </div>
+
+      <div class="box box-info" id="simOutput">
+        <!-- Javascript renders output here -->
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB 3: DIAGNOSTIC QUIZ & PATH ROUTER -->
+  <div id="diagnostic" class="tab-content">
+    <h2>Diagnostic Check & Differentiated Route</h2>
+    <p>Answer the 3 diagnostic questions below to unlock your recommended practice track.</p>
+
+    <div id="quizContainer">
+      <div id="q1">
+        <p><strong>Q1: Goods with a list price of $500 are sold with a 10% trade discount. What amount is recorded in the Sales Account?</strong></p>
+        <div class="quiz-option" onclick="answerQ(1, false)">A) $500</div>
+        <div class="quiz-option" onclick="answerQ(1, true)">B) $450</div>
+        <div class="quiz-option" onclick="answerQ(1, false)">C) $450 minus cash discount</div>
+      </div>
+
+      <div id="q2" class="hidden">
+        <p><strong>Q2: Why is a Trade Discount NOT recorded in the Discount Allowed or Discount Received account?</strong></p>
+        <div class="quiz-option" onclick="answerQ(2, true)">A) Because it reduces the selling price before the transaction is finalized.</div>
+        <div class="quiz-option" onclick="answerQ(2, false)">B) Because it is an expense to the business.</div>
+        <div class="quiz-option" onclick="answerQ(2, false)">C) Because trade discounts are only given for cash payments.</div>
+      </div>
+
+      <div id="q3" class="hidden">
+        <p><strong>Q3: A buyer receives an invoice for $1,000 net, terms 5% 7 days. They pay on day 5. What account does the buyer credit for $50?</strong></p>
+        <div class="quiz-option" onclick="answerQ(3, false)">A) Discount Allowed</div>
+        <div class="quiz-option" onclick="answerQ(3, true)">B) Discount Received</div>
+        <div class="quiz-option" onclick="answerQ(3, false)">C) Trade Payable</div>
+      </div>
+    </div>
+
+    <div id="pathResult" class="hidden">
+      <h3>Diagnostic Result</h3>
+      <div id="pathCard"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function switchTab(tabId) {
+    document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+    
+    event.target.classList.add('active');
+    document.getElementById(tabId).classList.add('active');
+  }
+
+  function calculateSim() {
+    const listPrice = parseFloat(document.getElementById('simListPrice').value) || 0;
+    const tradePct = parseFloat(document.getElementById('simTradePct').value) || 0;
+    const paidEarly = document.getElementById('simPaidEarly').value === 'yes';
+
+    const tradeAmt = listPrice * (tradePct / 100);
+    const netInvoice = listPrice - tradeAmt;
+    const cashDiscountAmt = paidEarly ? (netInvoice * 0.05) : 0;
+    const finalCash = netInvoice - cashDiscountAmt;
+
+    document.getElementById('simOutput').innerHTML = `
+      <h4>Breakdown Result</h4>
+      <p><strong>List Price:</strong> $${listPrice.toFixed(2)}</p>
+      <p><strong>Trade Discount (${tradePct}%):</strong> -$${tradeAmt.toFixed(2)} <br><small><em>(Not recorded in general ledger)</em></small></p>
+      <hr>
+      <p><strong>Net Invoice Value:</strong> $${netInvoice.toFixed(2)} <br><small style="color:blue;">➔ Value entered into Sales/Purchases Journal</small></p>
+      <hr>
+      <p><strong>Cash Discount (5%):</strong> -$${cashDiscountAmt.toFixed(2)} <br><small style="color:green;">➔ Recorded in Discount Allowed / Received Account</small></p>
+      <p><strong>Final Cash Paid/Received:</strong> <span style="font-size:1.2rem; font-weight:bold; color:var(--primary);">$${finalCash.toFixed(2)}</span></p>
+    `;
+  }
+
+  let score = 0;
+  let currentQ = 1;
+
+  function answerQ(qNum, isCorrect) {
+    if (isCorrect) score++;
+    
+    document.getElementById(`q${qNum}`).classList.add('hidden');
+    if (qNum < 3) {
+      document.getElementById(`q${qNum + 1}`).classList.remove('hidden');
+    } else {
+      showPath();
+    }
+  }
+
+  function showPath() {
+    document.getElementById('quizContainer').classList.add('hidden');
+    const pathResult = document.getElementById('pathResult');
+    const pathCard = document.getElementById('pathCard');
+    pathResult.classList.remove('hidden');
+
+    if (score <= 1) {
+      pathCard.className = 'box box-warning';
+      pathCard.innerHTML = `
+        <span class="badge badge-orange">Recommended: Foundation Path (Track A)</span>
+        <h4>Score: ${score}/3 — Rebuilding Foundations</h4>
+        <p>You're starting to get the idea! Review the <strong>Core Concepts</strong> tab again, then focus on distinguishing between the <em>Invoice Date</em> (Trade Discount) and <em>Payment Date</em> (Cash Discount).</p>
+        <p><strong>Action Item:</strong> Complete Practice Worksheet A (Matching & Basic Net Price Calculations).</p>
+      `;
+    } else if (score === 2) {
+      pathCard.className = 'box box-info';
+      pathCard.innerHTML = `
+        <span class="badge badge-blue">Recommended: Application Path (Track B)</span>
+        <h4>Score: ${score}/3 — Solid Concept Understanding</h4>
+        <p>Great job! You understand the difference between the discounts. Now practice calculating dual discount scenarios and recording net invoice amounts.</p>
+        <p><strong>Action Item:</strong> Complete Practice Worksheet B (Multi-step calculation & journal identification).</p>
+      `;
+    } else {
+      pathCard.className = 'box box-success';
+      pathCard.innerHTML = `
+        <span class="badge badge-green">Recommended: Mastery Path (Track C)</span>
+        <h4>Score: ${score}/3 — Accounting Mastery</h4>
+        <p>Excellent! You have full clarity on trade vs cash discounts. You are ready for advanced scenarios involving trade returns prior to settlement and full ledger posting.</p>
+        <p><strong>Action Item:</strong> Complete Practice Worksheet C (Buyer & Seller Dual Journal Entries & Ledger Postings).</p>
+      `;
+    }
+  }
+
+  // Initialize simulator on load
+  calculateSim();
+</script>
+</body>
+</html>
